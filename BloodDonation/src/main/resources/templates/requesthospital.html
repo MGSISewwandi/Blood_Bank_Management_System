@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Blood Bank</title>
+  </head>
+  <body style="margin: 20px;">
+  
+  <a th:href="@{/back_main}" class="btn btn-primary btn-sm mb-3" style="margin: 20px; float:left;">Back to Home Page</a>
+  
+  <a th:href="@{requesthospital/new}" class="btn btn-primary btn-sm mb-3" style="margin: 40px; float:right ">Add Request</a>
+  <div>
+
+   <h2 style="text-align: center;">Requests</h2> <br> </div>
+   
+   <table class="table table-striped ">
+  <thead class="bg-primary text-white">
+    <tr>
+      <th scope="col">ID</th>
+        <th scope="col">Date</th>
+      <th scope="col">Hospital Name</th>
+       <th scope="col">Required Blood</th>
+       <th scope="col">City</th>
+         <th scope="col">Contact No</th>
+         <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <th:block th:each="requesthospital : ${listRequesthospital}">
+    <tr>
+    <td>[[${requesthospital.id}]]</td>
+     <td>[[${requesthospital.date}]]</td>
+        <td>[[${requesthospital.hospitalname}]]</td>
+          <td>[[${requesthospital.blood}]]</td>
+        <td>[[${requesthospital.city}]]</td>
+        <td>[[${requesthospital.contactno}]]</td>
+      	 <td>
+      	 
+     	<a class="btn btn-sm btn-primary" th:href="@{'/requesthospital/edit/' + ${requesthospital.id}}" >Update</a>
+     	&nbsp;
+     	<a class="btn btn-sm btn-danger" th:href="@{'/requesthospital/delete/' + ${requesthospital.id}}">Delete</a>
+      	</td>
+    </tr>
+    </th:block>
+  </tbody>
+</table>
+   
+
+   
+z
+
+  
+  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
